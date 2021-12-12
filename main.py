@@ -99,7 +99,7 @@ def click_limpiar():
     terminos.delete(0, END)
     terminos.insert(0, "")
 
-
+#-----------------------------------------------------------------------------------------------------------------------------------
 #
 def funcion_impar():
     fun = funcion.get()  # La variable fun recibe lo que hay en el espacio de la función en la GUI.
@@ -118,7 +118,7 @@ def funcion_impar():
     txt.grid(column=13, row=30)
 
     ao = (integrate(f, (x, li, ls))) * (2 / ls)
-    # integramos la función que ingrese el usuario (f) en función de x con los límites de integración (li,ls)
+    #
     # multiplicamos por 1 sobre L
 
     # Usamos la función pprint para mostrar ao
@@ -127,7 +127,7 @@ def funcion_impar():
     # an es 0 ya que es la funcion para la opcion de senos.
 
     bn = integrate((f) * sin((n * pi * x) / ls), (x, li, ls)) * (2 / ls)
-    # Integramos la función que ingrese el usuario (f) en función de x con los límites de integración (li,ls)...
+    # ...
     # ... Multiplicada por sen((n*pi*x)/pi) como dice la fórmula para an
     # multiplicamos por 1 sobre L
 
@@ -192,29 +192,29 @@ def funcion_general():
     fun = funcion.get()  # La variable fun recibe lo que hay en el espacio de la función en la GUI.
     f = eval(fun)  # la nueva variable f almacena la evaluación de fun para que esté representada matemáticamente.
 
-    limi = lim_inf.get()  # La variable limi recibe lo que hay en el espacio de limite inferior en la GUI
-    li = eval(limi)  # La nueva variable li almacena la evaluacion de limi para conocer el valor
+    limi = lim_inf.get()
+    li = eval(limi)
 
-    lims = lim_sup.get()  # La variable lims recive lo que hay en el espacio de limite superior en la GUI
-    ls = eval(lims)  # La nueva variable ls almacena la evaluacion de lims para conocer el valor.
+    lims = lim_sup.get()
+    ls = eval(lims)
 
-    term = terminos.get()  # La variable term recibe lo que hay en el espacio de terminos en la GUI
-    t = eval(term)  # La nueva variable t, almacena la evaluacion de term para concoer el valor
+    term = terminos.get()
+    t = eval(term)
 
     txt = scrolledtext.ScrolledText(ventana, width=70, height=15)
     txt.grid(column=13, row=30)
 
     ao = (integrate(f, (x, li, ls))) * (1 / ls)
-    # integramos la funcion que ingrese el usuario (f) en funcion de x con los limites de integracion (li,ls)
+    # integramos la funcion que ingrese el usuario (f) en funcion de x con el periodo
     # multiplicamos por 1 sobre L
 
     an = integrate((f) * cos((n * pi * x) / ls), (x, li, ls)) * (1 / ls)
-    # integramos la funcion que ingrese el usuario (f) en funcion de x con los limites de integracion (li,ls)...
+    # integramos la funcion que ingrese el usuario (f) en funcion de x con el periodo ...
     # ... Multiplicada por cos((n*pi*x)/pi) como dice la formula para an
     # multiplicamos por 1 sobre L
 
     bn = integrate((f) * sin((n * pi * x) / ls), (x, li, ls)) * (1 / ls)
-    # integramos la funcion que ingrese el usuario (f) en funcion de x con los limites de integracion (li,ls)...
+    # integramos la funcion que ingrese el usuario (f) en funcion de x con el periodo ...
     # ... Multiplicada por sen((n*pi*x)/pi) como dice la formula para an
     # multiplicamos por 1 sobre L
 
@@ -289,10 +289,10 @@ def funcion_par():
     f = eval(fun)  # la nueva variable f almacena la evaluación de fun para que este representada matemáticamente.
 
     limi = lim_inf.get()  # La variable limi recibe lo que hay en el espacio de la funcion en la GUI.
-    li = eval(limi)  # la nueva variable li almacena la evaluacion de limi para que este representada matematicamente.
+    li = eval(limi)
 
     lims = lim_sup.get()  # La variable lims recibe lo que hay en el espacio de la funcion en la GUI.
-    ls = eval(lims)  # la nueva variable ls almacena la evaluacion de lims para que este representada matematicamente.
+    ls = eval(lims)
 
     term = terminos.get()  # La variable term recibe lo que hay en el espacio de la funcion en la GUI.
     t = eval(term)  # la nueva variable t almacena la evaluacion de term para que este representada matematicamente.
@@ -303,13 +303,13 @@ def funcion_par():
     lt = ls * -1
 
     ao = (integrate(f, (x, li, ls))) * (2 / ls)
-    # integramos la funcion que ingrese el usuario (f) en función de x con los limites de integracion (li,ls)
+    # integramos la funcion que ingrese el usuario (f) en función de x con el periodo
     # multiplicamos por 1 sobre L
 
     # Usamos la funcion pprint para mostrar ao
 
     an = integrate((f) * cos(n * x), (x, li, ls)) * (2 / ls)
-    # integramos la funcion que ingrese el usuario (f) en funcion de x con los limites de integracion (li,ls)...
+    # integramos la funcion que ingrese el usuario (f) en funcion de x con el periodo
     # ... Multiplicada por cos((n*pi*x)/pi) como dice la formula para an
     # multiplicamos por 1 sobre L
 
@@ -322,7 +322,8 @@ def funcion_par():
         # la funcion .subs cambia la "n" por cada uno de los terminos (1,2,3....n)
 
     seriean.reverse()
-    txt.insert(INSERT, "f(x) es una función par por lo que la serie se resolverá usando senos")
+    txt.insert(INSERT, "f(x) es una función par")
+    txt.insert(INSERT, '\n')
     txt.insert(INSERT, "El inervalo se extendera a (-p,p) y se resolvera usando cosenos")
 
     txt.insert(INSERT, '\n')
